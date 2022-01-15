@@ -1,0 +1,28 @@
+{% extends "base.html" %} 
+{% block main %} 
+	<!-- <head>
+		<style type="text/css">
+		html, body {height: 100%;}
+
+		body {background-image: url("{{url_for('static', filename='hermes.jpg')}}");background-repeat: no-repeat;background-size: 100% 100%;}
+		</style>
+	</head> -->
+	
+	{% for task in tasks %}
+	
+<!-- <body background="{{url_for('static', filename='hermes.jpg')}}"> -->
+	<body>
+		<div class = "card">
+			<div class="card-body" style="background-color: rgba(245, 245, 246); ">
+				<h3>{{ task.title }}</h3>
+				<p>Added on {{ task.date }}</p>
+				<a href = "{{ url_for('edit', task_id = task.id)}}" class = "btn btn-primary">Edit</a>
+				<a href = "{{ url_for('delete', task_id = task.id)}}" class = "btn btn-danger">Delete</a>
+			</div>
+		</div>
+	</body>
+	{% endfor %}
+{% endblock %} 
+
+<!-- <div class="card-block special-card" style="background-color: rgba(245, 245, 245, 0.4); ">This is my block</div> -->
+<!-- <div class="p-3 mb-2 bg-transparent text-dark">.bg-transparent</div> -->
